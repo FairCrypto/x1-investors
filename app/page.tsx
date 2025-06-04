@@ -18,6 +18,14 @@ import SocialLinks from "@/app/social-links";
 import CountUp from "react-countup";
 import {DoughnutChart} from "@/app/chart";
 
+function getFlagEmoji(countryCode: string) {
+  return countryCode
+    .toUpperCase()
+    .replace(/./g, (char) =>
+      String.fromCodePoint(127397 + char.charCodeAt(0))
+    );
+}
+
 export default function Home() {
   return (
     <>
@@ -57,9 +65,12 @@ export default function Home() {
                   {investors.map((row) => (
                     <TableRow key={row.country}>
                       <TableCell component="th" scope="row">
+                        <span style={{ fontSize: 'larger' }}>
+                          {getFlagEmoji(row.countryCode)}&nbsp;&nbsp;
+                        </span>
                         {row.country}
                       </TableCell>
-                      <TableCell align="right">{row.amount.toLocaleString()}</TableCell>
+                      <TableCell align="right"><CountUp end={row.amount} /></TableCell>
                       {/* <TableCell align="right">{row.investors}</TableCell> */}
                     </TableRow>
                   ))}
