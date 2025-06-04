@@ -134,19 +134,29 @@ export default function Home() {
               </Typography>
             </Link>
             <Link href="/X1_deck(PL).pdf" target="_blank" rel="noopener noreferrer">
-              <Typography variant="body2" color="textSecondary" align="center" sx={{
-                mt: 0,
-                transition: 'color 0.2s',
-                '&:hover': {
-                  color: 'text.primary', // Use the theme's main text color on hover
-                },
-              }}>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                align="center"
+                sx={{
+                  mt: 0,
+                  transition: 'color 0.2s',
+                  '&:hover': {
+                    color: 'text.primary', // Use the theme's main text color on hover
+                  },
+                }}>
                 X1 Deck (PL)
               </Typography>
             </Link>
             <Box sx={{ flexGrow: 1 }} />
             <Typography variant="body2" color="textSecondary" align="center" >
-              Reg D. 506(c), Round 2, $300M Valuation
+              <Link
+                href="https://www.sec.gov/resources-small-businesses/exempt-offerings/general-solicitation-rule-506c"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Reg D. 506(c)
+              </Link>, Round 2, $300M Valuation
             </Typography>
           </Stack>
         </Container>
