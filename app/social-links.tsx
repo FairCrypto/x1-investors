@@ -5,7 +5,7 @@ import React from "react";
 const SocialLinks = ({ isLarge }: { isLarge: boolean }) => (
   <Stack
     direction="row"
-    sx={{ justifyContent: !isLarge ? "center" : "flex-start", width: "100%" }}
+    sx={{ justifyContent: !isLarge ? "center" : "flex-start" }}
   >
     <IconButton
       disableRipple

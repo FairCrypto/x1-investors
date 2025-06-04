@@ -2,10 +2,10 @@
 
 import styles from './page.module.css'
 import {
-  AppBar, Button,
+  AppBar, Box, Button,
   Container,
   Grid,
-  Paper,
+  Paper, Stack,
   Table, TableBody, TableCell,
   TableContainer,
   TableHead,
@@ -17,6 +17,7 @@ import {investors} from "@/app/investors";
 import SocialLinks from "@/app/social-links";
 import CountUp from "react-countup";
 import {DoughnutChart} from "@/app/chart";
+import Link from "next/link";
 
 function getFlagEmoji(countryCode: string) {
   return countryCode
@@ -96,7 +97,58 @@ export default function Home() {
 
       <footer style={{ position: 'fixed', bottom: 0, width: '100%', padding: '10px 0' }}>
         <Container maxWidth="lg" >
-          <SocialLinks isLarge={true} />
+          <Stack direction="row" spacing={2} justifyContent="left" alignItems="center">
+            <SocialLinks isLarge={true} />
+            <Box sx={{ flexGrow: 1 }} />
+            <Link href="https://x.com/mrjacklevin/status/1928553314322624728?s=46&t=whSF50k0mpmYgY42864ABw" target="_blank" rel="noopener noreferrer" style={{ }}>
+              <Typography variant="body2" color="textSecondary" align="center" sx={{
+                mt: 0,
+                transition: 'color 0.2s',
+                '&:hover': {
+                  color: 'text.primary', // Use the theme's main text color on hover
+                },
+              }}>
+                Announcement
+              </Typography>
+            </Link>
+            <Link href="https://t.me/+A20VVr-FtFo3MGEz" target="_blank" rel="noopener noreferrer" style={{ }}>
+              <Typography variant="body2" color="textSecondary" align="center" sx={{
+                mt: 0,
+                transition: 'color 0.2s',
+                '&:hover': {
+                  color: 'text.primary', // Use the theme's main text color on hover
+                },
+              }}>
+                TG Group
+              </Typography>
+            </Link>
+            <Link href="/X1_deck(EN).pdf" target="_blank" rel="noopener noreferrer" style={{ }}>
+              <Typography variant="body2" color="textSecondary" align="center" sx={{
+                mt: 0,
+                transition: 'color 0.2s',
+                '&:hover': {
+                  color: 'text.primary', // Use the theme's main text color on hover
+                },
+              }}>
+                X1 Deck (EN)
+              </Typography>
+            </Link>
+            <Link href="/X1_deck(PL).pdf" target="_blank" rel="noopener noreferrer">
+              <Typography variant="body2" color="textSecondary" align="center" sx={{
+                mt: 0,
+                transition: 'color 0.2s',
+                '&:hover': {
+                  color: 'text.primary', // Use the theme's main text color on hover
+                },
+              }}>
+                X1 Deck (PL)
+              </Typography>
+            </Link>
+            <Box sx={{ flexGrow: 1 }} />
+            <Typography variant="body2" color="textSecondary" align="center" >
+              Reg D. 506(c), Round 2, $300M Valuation
+            </Typography>
+          </Stack>
         </Container>
       </footer>
     </>
