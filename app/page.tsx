@@ -16,12 +16,13 @@ import {
 import {investors} from "@/app/investors";
 import SocialLinks from "@/app/social-links";
 import CountUp from "react-countup";
+import {DoughnutChart} from "@/app/chart";
 
 export default function Home() {
   return (
     <>
       <AppBar position="static" sx={{ bgcolor: 'transparent'}}>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
         <Toolbar disableGutters>
           <a href="https://x1.xyz" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
             <img src="/x1-logo.png" alt="X1 Logo" style={{ width: 40, height: 40, marginRight: 16 }} />
@@ -33,9 +34,9 @@ export default function Home() {
         </Container>
       </AppBar>
 
-      <Container maxWidth="md">
-        <Grid container spacing={4} sx={{ marginTop: 4 }}>
-          <Grid item xs={12} >
+      <Container maxWidth="lg">
+        <Grid container spacing={4} columnSpacing={4} sx={{ marginTop: 4 }}>
+          <Grid item xs={12} md={6}>
             <Typography variant="body1" sx={{  textAlign: 'left' }}>
               Total Raised: <b><CountUp
               end={investors.reduce((acc,e)=> acc += e.amount, 0)}/> USD</b>
@@ -43,12 +44,10 @@ export default function Home() {
             <Typography variant="body1" sx={{  textAlign: 'left' }}>
               Countries: <b><CountUp end={investors.length} /></b>
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <TableContainer component={Paper} sx={{ maxHeight: 440 }}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableContainer component={Paper} sx={{ maxHeight: 440, mt: 4 }}>
+              <Table sx={{ minWidth: 350 }} aria-label="simple table">
                 <TableHead>
-                  <TableRow>
+                  <TableRow sx={{ fontWeight: 'bold' }}>
                     <TableCell>Country</TableCell>
                     <TableCell align="right">Amount Raised (USD)</TableCell>
                     {/* <TableCell align="right">Investors</TableCell> */}
@@ -69,6 +68,9 @@ export default function Home() {
             </TableContainer>
           </Grid>
 
+          <Grid item xs={12} md={5}>
+            <DoughnutChart data={investors} />
+          </Grid>
           <Grid item xs={12}>
             {/*<Button
               variant="contained"
@@ -82,7 +84,7 @@ export default function Home() {
       </Container>
 
       <footer style={{ position: 'fixed', bottom: 0, width: '100%', padding: '10px 0' }}>
-        <Container maxWidth="md" >
+        <Container maxWidth="lg" >
           <SocialLinks isLarge={true} />
         </Container>
       </footer>
