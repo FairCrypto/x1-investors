@@ -1,95 +1,89 @@
-import Image from 'next/image'
+'use client'
+
 import styles from './page.module.css'
+import {
+  AppBar, Button,
+  Container,
+  Grid,
+  Paper,
+  Table, TableBody, TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Toolbar,
+  Typography
+} from "@mui/material";
+import {investors} from "@/app/investors";
+import SocialLinks from "@/app/social-links";
+import CountUp from "react-countup";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      <AppBar position="static" sx={{ bgcolor: 'transparent'}}>
+        <Container maxWidth="md">
+        <Toolbar disableGutters>
+          <img src="/x1-logo.png" alt="X1 Logo" style={{ width: 40, height: 40, marginRight: 16 }} />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
+           Global Raise Dashboard
+          </Typography>
+        </Toolbar>
+        </Container>
+      </AppBar>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Container maxWidth="md">
+        <Grid container spacing={4} sx={{ marginTop: 4 }}>
+          <Grid item xs={12} >
+            <Typography variant="body1" sx={{  textAlign: 'left' }}>
+              Total Raised: <b><CountUp
+              end={investors.reduce((acc,e)=> acc += e.amount, 0)}/> USD</b>
+            </Typography>
+            <Typography variant="body1" sx={{  textAlign: 'left' }}>
+              Countries: <b><CountUp end={investors.length} /></b>
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <TableContainer component={Paper} sx={{ maxHeight: 440 }}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Country</TableCell>
+                    <TableCell align="right">Amount Raised (USD)</TableCell>
+                    {/* <TableCell align="right">Investors</TableCell> */}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {investors.map((row) => (
+                    <TableRow key={row.country}>
+                      <TableCell component="th" scope="row">
+                        {row.country}
+                      </TableCell>
+                      <TableCell align="right">{row.amount.toLocaleString()}</TableCell>
+                      {/* <TableCell align="right">{row.investors}</TableCell> */}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              color="primary"
+              href=""
+              sx={{ borderRadius: 20, my: 2,  padding: '12px 16px', fontSize: '16px' }}>
+              Join the Movement
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <footer style={{ position: 'fixed', bottom: 0, width: '100%', padding: '10px 0' }}>
+        <Container maxWidth="md" >
+          <SocialLinks isLarge={true} />
+        </Container>
+      </footer>
+    </>
   )
 }
