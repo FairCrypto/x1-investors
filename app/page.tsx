@@ -68,13 +68,13 @@ export default function Home() {
           </Grid>
 
           <Grid item xs={12}>
-            <Button
+            {/*<Button
               variant="contained"
               color="primary"
               href=""
               sx={{ borderRadius: 20, my: 2,  padding: '12px 16px', fontSize: '16px' }}>
               Join the Movement
-            </Button>
+            </Button> */}
           </Grid>
         </Grid>
       </Container>
