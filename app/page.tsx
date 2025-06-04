@@ -44,15 +44,15 @@ export default function Home() {
 
       <Container maxWidth="lg">
         <Grid container spacing={4} columnSpacing={4} sx={{ marginTop: 4 }}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <Typography variant="body1" sx={{  textAlign: 'left' }}>
               Total Raised: <b><CountUp
-              end={investors.reduce((acc,e)=> acc += e.amount, 0)}/> USD</b>
+              end={investors.reduce((acc: any, e: any)=> acc += e.amount, 0)}/> USD</b>
             </Typography>
             <Typography variant="body1" sx={{  textAlign: 'left' }}>
               Countries: <b><CountUp end={investors.length} /></b>
             </Typography>
-            <TableContainer component={Paper} sx={{ maxHeight: 440, mt: 4 }}>
+            <TableContainer component={Paper} sx={{ mt: 4 }}>
               <Table sx={{ minWidth: 350 }} aria-label="simple table">
                 <TableHead>
                   <TableRow sx={{ fontWeight: 'bold' }}>
@@ -62,7 +62,7 @@ export default function Home() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {investors.map((row) => (
+                  {investors.map((row: any) => (
                     <TableRow key={row.country}>
                       <TableCell component="th" scope="row">
                         <span style={{ fontSize: 'larger' }}>
@@ -78,8 +78,8 @@ export default function Home() {
               </Table>
             </TableContainer>
           </Grid>
-
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={1} />
+          <Grid item xs={12} md={5} >
             <DoughnutChart data={investors} />
           </Grid>
           <Grid item xs={12}>
