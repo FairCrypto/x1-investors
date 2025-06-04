@@ -23,7 +23,9 @@ export default function Home() {
       <AppBar position="static" sx={{ bgcolor: 'transparent'}}>
         <Container maxWidth="md">
         <Toolbar disableGutters>
-          <img src="/x1-logo.png" alt="X1 Logo" style={{ width: 40, height: 40, marginRight: 16 }} />
+          <a href="https://x1.xyz" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <img src="/x1-logo.png" alt="X1 Logo" style={{ width: 40, height: 40, marginRight: 16 }} />
+          </a>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
            Global Raise Dashboard
           </Typography>
