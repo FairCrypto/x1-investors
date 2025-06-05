@@ -4,7 +4,7 @@ import styles from './page.module.css'
 import {
   AppBar, Box, Button,
   Container,
-  Grid,
+  Grid, LinearProgress,
   Paper, Stack,
   Table, TableBody, TableCell,
   TableContainer,
@@ -28,9 +28,10 @@ function getFlagEmoji(countryCode: string) {
 }
 
 export default function Home() {
+  const goal = 3_000_000; // $3M
   return (
     <>
-      <AppBar position="static" sx={{ bgcolor: 'transparent'}}>
+      <AppBar position="relative" elevation={0} sx={{ bgcolor: 'transparent'}}>
         <Container maxWidth="lg">
         <Toolbar disableGutters>
           <a href="https://x1.xyz" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -45,6 +46,40 @@ export default function Home() {
 
       <Container maxWidth="lg">
         <Grid container spacing={4} columnSpacing={4} sx={{ marginTop: 4 }}>
+          <Grid item xs={12} >
+            <Box position="relative" width="100%">
+              {/* Progress bar */}
+              <LinearProgress
+                variant="determinate"
+                value={investors.reduce((acc: any, e: any)=> acc += e.amount, 0) / goal * 100}
+                sx={{ height: 40, borderRadius: 0 }} />
+              {/* Labels */}
+              <Box
+                position="absolute"
+                top={0}
+                left={0}
+                right={0}
+                height="100%"
+                px={1}
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+              >
+                <Typography
+                  variant="caption"
+                  sx={{ color: "white", fontWeight: "bold" }}
+                >
+                  0
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{ color: "white", fontWeight: "bold" }}
+                >
+                  $3M
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
           <Grid item xs={12} md={5}>
             <Typography variant="body1" sx={{  textAlign: 'left' }}>
               Total Raised: <b><CountUp
