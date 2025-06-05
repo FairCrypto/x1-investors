@@ -90,7 +90,7 @@ export default function Home() {
               Countries: <b><CountUp end={investors.length} /></b>
             </Typography>
             <TableContainer component={Paper} sx={{ mt: 4 }}>
-              <Table sx={{ minWidth: 350 }} aria-label="simple table">
+              <Table size="small" sx={{ minWidth: 350 }} aria-label="simple table">
                 <TableHead>
                   <TableRow sx={{ fontWeight: 'bold' }}>
                     <TableCell>Country</TableCell>
