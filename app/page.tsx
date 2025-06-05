@@ -50,27 +50,28 @@ export default function Home() {
             <Box position="relative" width="100%">
               {/* Progress bar */}
               <LinearProgress
+                color="primary"
                 variant="determinate"
                 value={investors.reduce((acc: any, e: any)=> acc += e.amount, 0) / goal * 100}
-                sx={{ height: 40, borderRadius: 0 }} />
+                sx={{ height: 12, borderRadius: 0 ,
+                backgroundColor: 'gray', // unfinished part
+                '& .MuiLinearProgress-bar': {
+                  // backgroundColor: '#1976d2', // finished part
+                },
+              }} />
               {/* Labels */}
               <Box
                 position="absolute"
                 top={0}
-                left={0}
-                right={0}
+                left={40}
+                right={-40}
                 height="100%"
                 px={1}
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
               >
-                <Typography
-                  variant="caption"
-                  sx={{ color: "white", fontWeight: "bold" }}
-                >
-                  0
-                </Typography>
+                <Box />
                 <Typography
                   variant="caption"
                   sx={{ color: "white", fontWeight: "bold" }}
