@@ -143,7 +143,7 @@ export const FlexibleThemeProvider = ({
     if (!mounted) {
       setMounted(true);
     }
-  }, []);
+  }, [mounted]);
 
   const onScreenChange = (mql: MediaQueryList, mxql: MediaQueryList) => () => {
     setLarge(mql.matches);
