@@ -90,13 +90,13 @@ export default function Home() {
               end={investors.reduce((acc: any, e: any)=> acc += e.amount, 0)}/> USD</b>
             </Typography>
             <Typography variant="body1" sx={{  textAlign: 'left' }}>
-              Countries: <b><CountUp end={investors.length} /></b>
+              Territories: <b><CountUp end={investors.length} /></b>
             </Typography>
             <TableContainer component={Paper} sx={{ mt: 4 }}>
               <Table size="small" sx={{ minWidth: 350 }} aria-label="simple table">
                 <TableHead>
                   <TableRow sx={{ fontWeight: 'bold' }}>
-                    <TableCell>Country / Region</TableCell>
+                    <TableCell>Territories</TableCell>
                     <TableCell align="right">Amount Raised (USD)</TableCell>
                     {/* <TableCell align="right">Investors</TableCell> */}
                   </TableRow>
