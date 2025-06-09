@@ -96,7 +96,7 @@ export default function Home() {
               <Table size="small" sx={{ minWidth: 350 }} aria-label="simple table">
                 <TableHead>
                   <TableRow sx={{ fontWeight: 'bold' }}>
-                    <TableCell>Country</TableCell>
+                    <TableCell>Country / Region</TableCell>
                     <TableCell align="right">Amount Raised (USD)</TableCell>
                     {/* <TableCell align="right">Investors</TableCell> */}
                   </TableRow>
