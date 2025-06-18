@@ -27,6 +27,7 @@ export const investorsRaw: Array<Record<string, any>> = [
   { country: 'Sweden', countryCode: 'SE',  amount: 50_000, investors: 1 },
   { country: 'Sweden', countryCode: 'SE',  amount: 30_000, investors: 1 },
   { country: 'Canada', countryCode: 'CA',  amount: 50_000, investors: 1 },
+  { country: 'Canada', countryCode: 'CA',  amount: 11_000, investors: 1 },
   { country: 'Hong Kong', countryCode: 'HK',  amount: 50_000, investors: 1 },
   { country: 'Poland', countryCode: 'PL',  amount: 12_000, investors: 1 },
   { country: 'Switzerland', countryCode: 'CH',  amount: 10_000, investors: 1 },
