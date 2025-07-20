@@ -23,9 +23,9 @@ export const investorsRaw: Array<Record<string, any>> = [
   { country: 'Australia', countryCode: 'AU',  amount: 20_000, investors: 1 },
   { country: 'Australia', countryCode: 'AU',  amount: 200_000, investors: 1 },
   { country: 'Australia', countryCode: 'AU',  amount: 5_000, investors: 1 },
-  { country: 'China', countryCode: 'CN',  amount: 50_000, investors: 1 },
-  { country: 'China', countryCode: 'CN',  amount: 20_000, investors: 1 },
-  { country: 'China', countryCode: 'CN',  amount: 30_000, investors: 1 },
+  { country: 'Hong Kong', countryCode: 'HK',  amount: 50_000, investors: 1 },
+  { country: 'Hong Kong', countryCode: 'HK',  amount: 20_000, investors: 1 },
+  { country: 'Hong Kong', countryCode: 'HK',  amount: 30_000, investors: 1 },
   { country: 'India', countryCode: 'IN',  amount: 525_000, investors: 1 },
   { country: 'Singapore', countryCode: 'SG',  amount: 15_000, investors: 1 },
   { country: 'Sweden', countryCode: 'SE',  amount: 50_000, investors: 1 },
@@ -42,6 +42,7 @@ export const investorsRaw: Array<Record<string, any>> = [
   { country: 'Croatia', countryCode: 'HR',  amount: 15_000, investors: 1 },
   { country: 'Croatia', countryCode: 'HR',  amount: 30_000, investors: 1 },
   { country: 'Malaysia', countryCode: 'MY',  amount: 10_000, investors: 1 },
+  { country: 'Georgia', countryCode: 'GE',  amount: 30_000, investors: 1 },
 ];
 
 export const investors = investorsRaw.reduce((acc, curr) => {
