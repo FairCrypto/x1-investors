@@ -65,7 +65,7 @@ export default function Home() {
               <LinearProgress
                 color="primary"
                 variant="determinate"
-                value={investors.reduce((acc: any, e: any)=> acc += e.amount, 0) / goal * 100}
+                value={Math.min(investors.reduce((acc: any, e: any)=> acc += e.amount, 0) / goal * 100, 100)}
                 sx={{ height: 12, borderRadius: 0 ,
                 backgroundColor: 'gray', // unfinished part
                 '& .MuiLinearProgress-bar': {
